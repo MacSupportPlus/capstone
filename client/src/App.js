@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import {Experiences} from './Component/Experiences';
+import {SurvivingBootcamp} from './Component/SurvivingBootcamp';
+import {LandingPage} from './Component/LandingPage';
+import {Courses} from './Component/Courses';
 
-function App() {
+
+// import styles from './styles.module.css';
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=''>
+        <Switch>
+          <Route exact path='/'> 
+            <LandingPage />
+          </Route>
+          <Route path='/surviving'>
+            <SurvivingBootcamp />
+          </Route>
+          <Route path='/experiences'>
+            <Experiences />
+          </Route>
+          <Route path='/courses'>
+            <Courses />
+          </Route>
+        </Switch>
     </div>
   );
 }
-
-export default App;
