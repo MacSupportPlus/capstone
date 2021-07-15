@@ -15,7 +15,7 @@ export const LandingPage = () => {
                     this is another video
                 </div>
                 <div>
-                    finally a third video
+                    finally a third video WAAAAAAA
                 </div>
             </div>
 
