@@ -27,7 +27,7 @@ const token = (user) => {
 
 //Register
 router.post("/register", async (req, res) => {
-   
+   //good times
 
    try{
     const salt = await bcrypt.genSalt(10);
