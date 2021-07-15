@@ -4,41 +4,50 @@ const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractStrategy = require('passport-jwt').ExtractJwt;
 
 const bcrypt = require('bcryptjs');
-const db = require('../models/User');
+const User = require('../models/User');
 const config = require('../secrets');
 
 //local strategy
 let options = { 
-    usernameField: 'email'
+    usernameField: 'email', 
+    passwordField: 'passWord'
 }
 let localLogin = new LocalStrategy(options, async (email, passWord, done) => {
-    try{
-        //check to see if email is in our db
-        let records = await db.findAll({where: {email: email}}) //array of objects
-        if(records != null){
-            //email found , check password
-            bcrypt.compare(passWord, records[0].passWord, (err, isMatch)=> {
-                //check if error 
-                if(err) {
+    console.log("made it here")
+    try{ 
+        let user = await User.findOne({email: email}); //array of objects [{}, {}]
+        console.log(user)
+        if(user !== null){
+            //email was found, check password
+
+            bcrypt.compare(passWord, user.passWord, (err, isMatch)=>{
+                //check if error
+                if(err){
                     return done(err);
                 }
-                //mismatch in passwords 
+
+                //mismatch passwords
                 if(!isMatch){
                     return done(null, false)
                 }
+
                 //valid user
-                return done(null,records[0])
+
+                return done(null, user)
             })
-        }else{
-            //no email found , exit with error 
+        }
+        else{
+            // no email found, exit with error
             return done(null, false)
         }
-}
-catch(error){
-    //cant access db
-    return done(error);
-}
+    }
+    catch(error){
+        //can't access db
+        return done(error)
+    }
+
 })
+
 
 //jwt strategy 
 let jwtOptions = {
@@ -48,7 +57,8 @@ let jwtOptions = {
 }
 let jwtLogin = new JwtStrategy(jwtOptions, async (req, payload, done) => {
     try{
-        let user = await db.findByPk(payload.sub)
+        let user = await User.findById(payload.sub)
+        console.log(user)
         if(user) {
             //success
             done(null, user)
