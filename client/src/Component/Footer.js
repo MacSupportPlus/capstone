@@ -7,7 +7,7 @@ import Container from '@material-ui/core/Container';
 
 export default function Footer() {
     return (
-        <AppBar position="static" color="primary">
+        <AppBar position="static" color="primary" style={{backgroundColor: '#D4E09B'}}>
           <Container maxWidth="md">
             <Toolbar>
               <Typography variant="body1" color="inherit">
