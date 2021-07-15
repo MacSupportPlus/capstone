@@ -1,10 +1,25 @@
 import React from 'react';
 
+import '../index.css';
+
 export const LandingPage = () => {
     return(
         <>
-        Your going between the header and the footer!!!!!!
-        
+        <div className="mainHolder">
+            <h1><img src="../images/logo2.jpg"></img></h1>
+            <div className="videoHolder">
+                <div>
+                    this is one video
+                </div>
+                <div>
+                    this is another video
+                </div>
+                <div>
+                    finally a third video WAAAAAAA
+                </div>
+            </div>
+
+        </div>
         </>
     )
 };
