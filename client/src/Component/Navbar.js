@@ -14,6 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import '../index.css'
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -162,7 +163,7 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <div className>
+    <div className="">
       <div className={classes.grow}>
         <AppBar position="static" style={{backgroundColor: '#D4E09B'}}>
           <Toolbar>
