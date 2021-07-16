@@ -11,9 +11,10 @@ import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+// import MailIcon from '@material-ui/icons/Mail';
+// import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import {Link} from 'react-router-dom'
 import '../index.css'
 
 const useStyles = makeStyles((theme) => ({
@@ -116,51 +117,53 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <Link className="link" to="/"><MenuItem onClick={handleMenuClose}>Home</MenuItem></Link>
+      <Link className="link" to="/courses"><MenuItem onClick={handleMenuClose}>Courses</MenuItem></Link>
+      <Link className="link" to="/experiences"><MenuItem onClick={handleMenuClose}>Experiences</MenuItem></Link>
+      <Link className="link" to="/surviving"><MenuItem onClick={handleMenuClose}>Surviving</MenuItem></Link>
     </Menu>
   );
 
-  const mobileMenuId = 'primary-search-account-menu-mobile';
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
-    </Menu>
-  );
+  // const mobileMenuId = 'primary-search-account-menu-mobile';
+  // const renderMobileMenu = (
+  //   <Menu
+  //     anchorEl={mobileMoreAnchorEl}
+  //     anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+  //     id={mobileMenuId}
+  //     keepMounted
+  //     transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+  //     open={isMobileMenuOpen}
+  //     onClose={handleMobileMenuClose}
+  //   >
+  //     <MenuItem>
+  //       <IconButton aria-label="show 4 new mails" color="inherit">
+  //         <Badge badgeContent={4} color="secondary">
+  //           <MailIcon />
+  //         </Badge>
+  //       </IconButton>
+  //       <p>Courses</p>
+  //     </MenuItem>
+  //     <MenuItem>
+  //       <IconButton aria-label="show 11 new notifications" color="inherit">
+  //         <Badge badgeContent={11} color="secondary">
+  //           <NotificationsIcon />
+  //         </Badge>
+  //       </IconButton>
+  //       <p>Notifications</p>
+  //     </MenuItem>
+  //     <MenuItem onClick={handleProfileMenuOpen}>
+  //       <IconButton
+  //         aria-label="account of current user"
+  //         aria-controls="primary-search-account-menu"
+  //         aria-haspopup="true"
+  //         color="inherit"
+  //       >
+  //         <AccountCircle />
+  //       </IconButton>
+  //       <p>Profile</p>
+  //     </MenuItem>
+  //   </Menu>
+  // );
 
   return (
     <div className="">
@@ -172,6 +175,7 @@ export default function PrimarySearchAppBar() {
               className={classes.menuButton}
               color="inherit"
               aria-label="open drawer"
+              onClick={handleProfileMenuOpen}
             >
               <MenuIcon />
             </IconButton>
@@ -191,19 +195,19 @@ export default function PrimarySearchAppBar() {
                 inputProps={{ 'aria-label': 'search' }}
               />
             </div>
-            <div className={classes.grow} />
+            {/* <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
               <IconButton aria-label="show 4 new mails" color="inherit">
                 <Badge badgeContent={4} color="secondary">
-                  <MailIcon />
-                </Badge>
+                  {/* <MailIcon /> */}
+                {/* </Badge>
               </IconButton>
               <IconButton aria-label="show 17 new notifications" color="inherit">
                 <Badge badgeContent={17} color="secondary">
-                  <NotificationsIcon />
-                </Badge>
-              </IconButton>
-              <IconButton
+                  {/* <NotificationsIcon /> */}
+                {/* </Badge>
+              </IconButton> */} 
+              {/* <IconButton
                 edge="end"
                 aria-label="account of current user"
                 aria-controls={menuId}
@@ -213,11 +217,11 @@ export default function PrimarySearchAppBar() {
               >
                 <AccountCircle />
               </IconButton>
-            </div>
+            </div> */}
             <div className={classes.sectionMobile}>
               <IconButton
                 aria-label="show more"
-                aria-controls={mobileMenuId}
+                // aria-controls={mobileMenuId}
                 aria-haspopup="true"
                 onClick={handleMobileMenuOpen}
                 color="inherit"
@@ -227,7 +231,7 @@ export default function PrimarySearchAppBar() {
             </div>
           </Toolbar>
         </AppBar>
-        {renderMobileMenu}
+        {/* {renderMobileMenu} */}
         {renderMenu}
       </div>
     </div>
