@@ -6,8 +6,8 @@ body{
 }
 
 img{
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 100%;
+    
 }
 
 .mainHolder{
@@ -23,6 +23,7 @@ h1{
 h3{
     text-align: center;
     color: #A44A3F;
+    
 }
 
 .videoHolder{
@@ -34,6 +35,22 @@ h3{
     
 }
 
+
+.video{
+    height: 400px;
+}
+.video h1{
+    color:#d4e09b;
+    text-shadow: 0px, 0px, 5px, white;
+    line-height: 400px;
+    font-weight: bolder;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+}
+
 .link{
     text-decoration: none;
     color: #A44A3F
@@ -43,3 +60,4 @@ h3{
 .link:hover{
     color: #CBDFBD;
 }
+
