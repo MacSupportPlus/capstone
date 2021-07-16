@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {CoursesSlider} from './CoursesSlider'
 import '../index.css';
 
 export const LandingPage = () => {
@@ -18,7 +18,9 @@ export const LandingPage = () => {
                     finally a third video WAAAAAAA
                 </div>
             </div>
-
+                <div>
+                    <CoursesSlider />
+                </div>
         </div>
         </>
     )
