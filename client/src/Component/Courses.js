@@ -7,7 +7,8 @@ export const Courses = () =>{
         const[coursesData,setCoursesData]= useState([])
         useEffect(() =>{
             axios.get("http://localhost:8800/api/udemyapi/courses")
-            .then(res => setCoursesData(res.data.result.results))
+            .then(res =>{setCoursesData(res.data.result.results)})
+            
         },[])
         
         return(
