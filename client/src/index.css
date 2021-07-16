@@ -33,3 +33,13 @@ h3{
     margin-left: 5%;
     
 }
+
+.link{
+    text-decoration: none;
+    color: #A44A3F
+    
+}
+
+.link:hover{
+    color: #CBDFBD;
+}
