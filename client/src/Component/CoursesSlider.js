@@ -41,7 +41,7 @@ export const CoursesSlider = () => {
         <>
         <Carousel responsive={responsive} sliderClass="carousel-item-height-100-px">
             {courses && courses.map((course)=>(
-                <div style={{textAlign:"center"}} >
+                <div style={{textAlign:"center", backgroundColor:"#d4e09b", height:300}}>
                     <Link to={"/courses"}>
                     <img className="p-3" src={course.image_480x270} style={{resizeMode: 'contain', height:200, width:350}}></img>
                     </Link>
