@@ -6,8 +6,7 @@ body{
 }
 
 img{
-    width: 100%;
-    
+    max-width: 100%;   
 }
 
 .mainHolder{
@@ -19,6 +18,7 @@ img{
     text-align: center;
     margin: 0;
 }
+
 h2{
     background-color: #d4e09b;
     text-align: center;
@@ -65,3 +65,13 @@ h3{
     color: #CBDFBD;
 }
 
+.suggestedCourses{
+    background-color:  #d4e09b;
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 75px;
+    color: #A44A3F;
+    font-weight: bold;
+    font-size: 24px;
+
+}

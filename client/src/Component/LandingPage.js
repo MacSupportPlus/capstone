@@ -13,7 +13,7 @@ export const LandingPage = () => {
             </YoutubeBackground>
 
             <img src="../images/banner.jpg"></img>
-    
+            <div className="suggestedCourses">SuggestedCourses</div>
             <CoursesSlider />  
 
         </>
