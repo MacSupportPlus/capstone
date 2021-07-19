@@ -39,11 +39,12 @@ export const CoursesSlider = () => {
     //What do you want to see on the page
     return (
         <>
+            <h1 style={{background:"#d4e09b"}}>Suggested Courses</h1>
         <Carousel responsive={responsive} sliderClass="carousel-item-height-100-px">
             {courses && courses.map((course)=>(
                 <div style={{textAlign:"center", backgroundColor:"#d4e09b", height:300}}>
                     <Link to={"/courses"}>
-                    <img className="p-3" src={course.image_480x270} style={{resizeMode: 'contain', height:200, width:350}}></img>
+                    <img className="p-3" src={course.image_480x270} style={{resizeMode: 'contain', height:250, width:270}}></img>
                     </Link>
                     <p>{course.title}</p>
                 </div>
