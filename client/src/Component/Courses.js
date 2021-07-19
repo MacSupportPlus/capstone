@@ -18,9 +18,9 @@ export const Courses = () =>{
                 <div className="d-flex col-12 column-flex flex-wrap p-4">
                     {coursesData && coursesData.map((course) => (
                         <div className="col-3 p-3">
-                            <Link to={`udemy.com/${course.url}`}>
+                            <a href={`https://udemy.com/${course.url}`} target="_blank">
                             <img src={course.image_240x135} style={{width:"400px"}} alt=""></img>
-                            </Link>
+                            </a>
                             <div className="col-10" style={{textAlign:"center"}}>
                                 <p>{course.title} <br /> {course.price} <br /></p>
                             </div>

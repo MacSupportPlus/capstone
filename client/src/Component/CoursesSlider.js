@@ -14,7 +14,7 @@ const responsive = {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 6
+      items: 4
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -39,11 +39,11 @@ export const CoursesSlider = () => {
     //What do you want to see on the page
     return (
         <>
-        <Carousel responsive={responsive} sliderClass="carousel-item-height-100-px">
+        <Carousel responsive={responsive} sliderClass="carousel-item-height-300-px">
             {courses && courses.map((course)=>(
                 <div style={{textAlign:"center", backgroundColor:"#d4e09b", height:300}}>
                     <Link to={"/courses"}>
-                    <img className="p-3" src={course.image_480x270} style={{resizeMode: 'contain', height:250, width:270}}></img>
+                    <img className="p-3" src={course.image_480x270} style={{resizeMode: 'stretch', height:270, width:480, flex:1}}></img>
                     </Link>
                     <p>{course.title}</p>
                 </div>
