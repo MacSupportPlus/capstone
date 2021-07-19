@@ -1,9 +1,6 @@
 import React from 'react';
-
 import YoutubeBackground from 'react-youtube-background';
-
 import {CoursesSlider} from './CoursesSlider'
-
 import '../index.css';
 
 
@@ -15,9 +12,7 @@ export const LandingPage = () => {
                         <h1>Welcome</h1>
             </YoutubeBackground>
             <img src="../images/banner.jpg"></img>
-            <div>
-              <CoursesSlider />
-            </div>    
+            <CoursesSlider />  
         </>
     )
 };
