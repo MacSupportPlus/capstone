@@ -183,6 +183,8 @@ export default function PrimarySearchAppBar() {
             <Typography className={classes.title} variant="h6" noWrap>
               U&#38;Me Academy
             </Typography>
+            <div className={classes.grow}></div>
+            <div className="navbar" style={{display:"flex"}}>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
@@ -195,6 +197,7 @@ export default function PrimarySearchAppBar() {
                 }}
                 inputProps={{ 'aria-label': 'search' }}
               />
+              </div>
             </div>
             {/* <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
