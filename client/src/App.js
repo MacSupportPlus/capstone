@@ -7,6 +7,7 @@ import {Courses} from './Component/Courses';
 import Login from './Component/login/Login.js';
 import Register from './Component/register/Register.js';
 import Signout from './Component/Signout'
+import Auth from './RequireAuth';
 
 
 // import styles from './styles.module.css';
@@ -14,27 +15,38 @@ export const App = () => {
   return (
     <div className=''>
         <Switch>
-          <Route exact path='/'> 
-            <LandingPage />
-          </Route>
-          <Route path='/surviving'>
-            <SurvivingBootcamp />
-          </Route>
-          <Route path='/experiences'>
-            <Experiences />
-          </Route>
-          <Route path='/courses'>
-            <Courses />
-          </Route>
+        <Route exact path="/" render={()=>(
+              <Auth>
+                <LandingPage/>
+              </Auth>
+        )} />
+         
+         <Route exact path="/surviving" render={()=>(
+              <Auth>
+                <SurvivingBootcamp/>
+              </Auth>
+        )} />
+          <Route exact path="/experiences" render={()=>(
+              <Auth>
+                <Experiences/>
+              </Auth>
+        )} />
+          <Route exact path="/courses" render={()=>(
+              <Auth>
+                <Courses/>
+              </Auth>
+        )} />
           <Route path='/login'>
             <Login />
           </Route>
           <Route path='/register'>
             <Register />
           </Route>
-          <Route path='/signout'>
-            <Signout />
-          </Route>
+          <Route exact path="/signout" render={()=>(
+              <Auth>
+                <Signout/>
+              </Auth>
+        )} />
         </Switch>
     </div>
   );

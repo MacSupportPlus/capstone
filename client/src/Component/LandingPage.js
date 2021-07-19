@@ -11,9 +11,11 @@ export const LandingPage = () => {
                 videoId={'jycn4RqY_3U'}>
                         <h1 className="h1">Welcome</h1>
             </YoutubeBackground>
+
             <img src="../images/banner.jpg"></img>
             <div className="suggestedCourses">SuggestedCourses</div>
             <CoursesSlider />  
+
         </>
     )
 };
