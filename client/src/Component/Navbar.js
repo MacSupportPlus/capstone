@@ -121,6 +121,7 @@ export default function PrimarySearchAppBar() {
       <Link className="link" to="/courses"><MenuItem onClick={handleMenuClose}>Courses</MenuItem></Link>
       <Link className="link" to="/experiences"><MenuItem onClick={handleMenuClose}>Experiences</MenuItem></Link>
       <Link className="link" to="/surviving"><MenuItem onClick={handleMenuClose}>Surviving</MenuItem></Link>
+      <Link className="link" to="/signout"><MenuItem onClick={handleMenuClose}>Sign Out</MenuItem></Link>
     </Menu>
   );
 
