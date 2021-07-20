@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 
 const VideoSchema = new mongoose.Schema({
-    userId: {
-        type:String,
-        require: true,
-    },
+    // userId: {
+    //     type:String,
+       
+    // },
     description : {
         type:String,
         max: 500
