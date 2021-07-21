@@ -1,4 +1,4 @@
-import {ADD_TO_CART} from '../actions/types';
+import {ADD_TO_CART} from '../actions/actionTypes';
 
 const courseReducer = (state, action) => {
   if (state == null) {
