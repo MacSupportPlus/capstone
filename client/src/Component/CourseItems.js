@@ -1,14 +1,14 @@
 import React from "react";
 import {useSelector} from 'react-redux';
-import {formatCurrency} from '../components/utils';
+import {formatCurrency} from './utils';
 import Fade from 'react-reveal/Fade';
 
 const CourseItems = () => {
 
-    const courseItems = useSelector(state => state.cart.courseItems);
+    const courseItems = useSelector(state => state.course.courseItems);
     const numberOfItems = useSelector(state => state.course.numberOfItems);
     const totalCosts = useSelector(state => state.course.totalCosts);
-
+    console.log(courseItems)
   return <>
     <div>
         {courseItems.length === 0 
@@ -29,7 +29,7 @@ const CourseItems = () => {
 
                     <div className="d-flex">
                             <div>
-                                <img src={item.image} alt={item.title} />
+                                <img src={item.image_240x135} alt={item.title} />
                             </div>
 
                             <div>
@@ -38,7 +38,7 @@ const CourseItems = () => {
                     </div>
 
                     <div className="">
-                        {formatCurrency(item.price)} X {item.count}
+                        {(item.price)} X {item.count}
                         <button className="btn btn-warning">Remove</button>
                     </div>
                 </div>

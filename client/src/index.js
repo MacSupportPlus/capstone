@@ -5,13 +5,13 @@ import { App } from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import {createStore, applyMiddleware, compose} from 'redux';
-import reducer from './reducers/reducer';
+import reducers from './reducers'
 import reduxThunk from 'redux-thunk'
 import BaseLayout from './Component/BaseLayout'
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
-  reducer,
+  reducers,
   {},
   composeEnhancers(applyMiddleware(reduxThunk))
 );
