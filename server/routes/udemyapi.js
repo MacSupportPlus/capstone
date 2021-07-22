@@ -9,10 +9,7 @@ router.get('/courses', async(req,res)=> {
                 "Content-Type": "application/json;charset=utf-8"
             }
             })
-           res.send({result:data.data})
-           console.log(result)
-        
-            
+        res.send({result:data.data})
 })
 
 module.exports = router
