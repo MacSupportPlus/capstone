@@ -180,9 +180,12 @@ export default function PrimarySearchAppBar() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography className={classes.title} variant="h6" noWrap>
+            {/* <Typography className={classes.title} variant="h6" noWrap>
               U&#38;Me Academy
-            </Typography>
+            </Typography> */}
+
+            <Link to="/"><img className="homeicon"src="/images/logo3.png"/></Link>
+
             <div className={classes.grow}></div>
             <div className="navbar" style={{display:"flex"}}>
             <div className={classes.search}>
