@@ -25,13 +25,13 @@ export const SurvivingBootcamp = () => {
     return(
         <>
             <div className="box1">
-                <div className="box2">{(video)?
+                <div className="box2"> {(video)?
                 (<iframe src={video.videoLink} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>)
-                            :null}</div>
+                            : <img src={"/images/daGang.jpg"}></img>}</div>
                 <div className="box3">{courses.map((course, index) => {
                         return  <div onClick={() => playVideo(index)} className="box4">
                             <img src={`/images/${course.img}`}></img>
-                            Que</div>
+                            </div>
                             })}
                     </div>
                 </div>
