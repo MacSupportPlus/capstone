@@ -121,6 +121,7 @@ export default function PrimarySearchAppBar() {
       <Link className="link" to="/courses"><MenuItem onClick={handleMenuClose}>Courses</MenuItem></Link>
       <Link className="link" to="/experiences"><MenuItem onClick={handleMenuClose}>Experiences</MenuItem></Link>
       <Link className="link" to="/surviving"><MenuItem onClick={handleMenuClose}>Surviving</MenuItem></Link>
+      <Link className="link" to="/signout"><MenuItem onClick={handleMenuClose}>Sign Out</MenuItem></Link>
     </Menu>
   );
 
@@ -166,7 +167,7 @@ export default function PrimarySearchAppBar() {
   // );
 
   return (
-    <div className>
+    <div className="">
       <div className={classes.grow}>
         <AppBar position="static" style={{backgroundColor: '#D4E09B'}}>
           <Toolbar>
@@ -182,6 +183,8 @@ export default function PrimarySearchAppBar() {
             <Typography className={classes.title} variant="h6" noWrap>
               U&#38;Me Academy
             </Typography>
+            <div className={classes.grow}></div>
+            <div className="navbar" style={{display:"flex"}}>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
@@ -194,6 +197,7 @@ export default function PrimarySearchAppBar() {
                 }}
                 inputProps={{ 'aria-label': 'search' }}
               />
+              </div>
             </div>
             {/* <div className={classes.grow} />
             <div className={classes.sectionDesktop}>

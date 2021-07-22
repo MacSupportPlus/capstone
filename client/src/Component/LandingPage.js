@@ -1,25 +1,21 @@
 import React from 'react';
-
+import YoutubeBackground from 'react-youtube-background';
+import {CoursesSlider} from './CoursesSlider'
 import '../index.css';
+
 
 export const LandingPage = () => {
     return(
         <>
-        <div className="mainHolder">
-            <h1><img src="../images/logo2.jpg"></img></h1>
-            <div className="videoHolder">
-                <div>
-                    this is one video
-                </div>
-                <div>
-                    this is another video
-                </div>
-                <div>
-                    finally a third video WAAAAAAA
-                </div>
-            </div>
+            <YoutubeBackground className="video"
+                videoId={'jycn4RqY_3U'}>
+                        <h1 className="h1">Welcome</h1>
+            </YoutubeBackground>
 
-        </div>
+            <img src="../images/banner.jpg"></img>
+            <div className="suggestedCourses">SuggestedCourses</div>
+            <CoursesSlider />  
+
         </>
     )
 };

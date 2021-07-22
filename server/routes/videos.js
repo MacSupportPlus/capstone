@@ -13,8 +13,17 @@ router.post("/", async (req, res) => {
         res.status(500).json(err);
     }
 });
-
-
+//find all videos
+router.get("/videos", async (req, res) => {
+    try {
+      const videos = await Video.find({});
+      console.log(videos)
+      res.status(200).json(videos);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+  
 //update a video
 router.put("/:id", async (req, res) => {
     try {
@@ -85,6 +94,7 @@ router.get("/videos/:category", async (req, res) => {
     }
   });
   
+
   module.exports = router;
   
 

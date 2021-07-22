@@ -60,4 +60,13 @@ router.get("/", async(req, res) => {
     }
 })
 
+// router.put("/:id/addToCart", async(req, res) => {
+//     try{
+//         const user = await User.findById(req.params.id);
+//         const course = await Video.findbyId(req.body.)
+//         if(!user.cart.includes(req.body.course.id));
+//             await user.updateOne({$push: { cart: req.body.course.id}});
+//             res.status(200).json("The cart has been added");
+//     }
+
 module.exports = router
