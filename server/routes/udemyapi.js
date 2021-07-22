@@ -10,7 +10,7 @@ router.get('/courses', async(req,res)=> {
             }
             })
            res.send({result:data.data})
-           console.log(result)
+           
         
             
 })
