@@ -5,7 +5,7 @@ import Fade from 'react-reveal/Fade';
 
 const CourseItems = () => {
 
-    const courseItems = useSelector(state => state.course.courseItems);
+    const courseItems = useSelector(state => state.course.cart);
     const numberOfItems = useSelector(state => state.course.numberOfItems);
     const totalCosts = useSelector(state => state.course.totalCosts);
     console.log(courseItems)

@@ -51,12 +51,13 @@ let localLogin = new LocalStrategy(options, async (email, passWord, done) => {
 
 //jwt strategy 
 let jwtOptions = {
-    jwtFromRequest: ExtractStrategy.fromHeader('authorization'),
+    jwtFromRequest: ExtractStrategy.fromHeader('Authorization'),
     secretOrKey: config.secrets,
     passReqToCallback: true
 }
 let jwtLogin = new JwtStrategy(jwtOptions, async (req, payload, done) => {
     try{
+        console.log(payload);
         let user = await User.findById(payload.sub)
         console.log(user)
         if(user) {

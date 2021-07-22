@@ -1,8 +1,9 @@
 const router= require("express").Router();
 const User = require("../models/User");
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt");
+const passport = require('passport')
 
-
+let requireJwt = passport.authenticate('jwt', {session: false});
 //update user
 router.put("/:id", async(req, res) => {
     if(req.body.userId === req.params.id || req.body.isAdmin) {
@@ -60,13 +61,19 @@ router.get("/", async(req, res) => {
     }
 })
 
-// router.put("/:id/addToCart", async(req, res) => {
-//     try{
-//         const user = await User.findById(req.params.id);
-//         const course = await Video.findbyId(req.body.)
-//         if(!user.cart.includes(req.body.course.id));
-//             await user.updateOne({$push: { cart: req.body.course.id}});
-//             res.status(200).json("The cart has been added");
-//     }
+router.put("/:videoId/addToCart", requireJwt, async(req, res) => {
+    try{
+        console.log("WTF")
+        const { videoId } = req.params;
+        console.log(videoId, req.user)
+        const user = await User.findOne({_id: req.user._id });
+        console.log(user)
+        // if(!user.cart.includes(req.body.course.id));
+        //     await user.updateOne({$push: { cart: req.body.id}});
+        //     res.status(200).json("The cart has been added");
+    }catch(err) {
+        res.status(500).json(err)
+    }
+})
 
 module.exports = router
