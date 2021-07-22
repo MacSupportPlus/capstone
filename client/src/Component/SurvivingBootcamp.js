@@ -6,7 +6,6 @@ import {getVideos} from '../actions/courseActions'
 
 
 export const SurvivingBootcamp = () => {
-    const dispatch = useDispatch();
     const courses = useSelector(state => state.course.courses);
     const dispatch = useDispatch();
   

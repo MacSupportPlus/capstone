@@ -3,40 +3,22 @@ import {ADD_TO_CART} from '../actions/actionTypes';
 const courseReducer = (state, action) => {
   if (state == null) {
     state = {
-        courseItems: [],
+        cart: [],
         numberOfItems: 0,
         totalCost: parseFloat(0.00),
-        courses: []
+        courses: [],
+        udemyCourses: []
     };
   }
 
-  switch (action.type) { //action.product
+  switch (action.type) { 
 
-    case ADD_TO_CART:
+    case "ADD_TO_CART":
 
-        let newCourseItems = [...state.courseItems];
-        let isFound = false;
-
-        newCourseItems.forEach(course =>{
-            if(course.id === action.product.id){
-                course.count++;
-                isFound = true;
-            }
-        })
-
-        if(!isFound){
-            newCourseItems.push({...action.product, count:1})
-        }
-
-
-        return {
+        return{
             ...state,
-            courseItems: newCourseItems,
-            numberOfItems: state.numberOfItems + 1,
-            totalCost: state.totalCost + parseFloat(action.product.price)
+            cart: action.product
         }
-    default:
-      return state;
     
     case "GET_VIDEOS":
 
@@ -45,6 +27,18 @@ const courseReducer = (state, action) => {
             courses: action.data
         }
 
+        
+
+  
+    case "GET_UDEMY_VIDEOS":
+
+        return{
+            ...state,
+            udemyCourses: action.data
+        }
+    default:
+        return state;
+        
         
 
   }
