@@ -119,7 +119,7 @@ export default function PrimarySearchAppBar() {
     >
       <Link className="link" to="/"><MenuItem onClick={handleMenuClose}>Home</MenuItem></Link>
       <Link className="link" to="/courses"><MenuItem onClick={handleMenuClose}>Courses</MenuItem></Link>
-      <Link className="link" to="/experiences"><MenuItem onClick={handleMenuClose}>Experiences</MenuItem></Link>
+      {/* <Link className="link" to="/experiences"><MenuItem onClick={handleMenuClose}>About Us</MenuItem></Link> */}
       <Link className="link" to="/surviving"><MenuItem onClick={handleMenuClose}>Surviving</MenuItem></Link>
       <Link className="link" to="/signout"><MenuItem onClick={handleMenuClose}>Sign Out</MenuItem></Link>
     </Menu>
@@ -185,23 +185,6 @@ export default function PrimarySearchAppBar() {
             </Typography> */}
 
             <Link to="/"><img className="homeicon"src="/images/logo3.png"/></Link>
-
-            <div className={classes.grow}></div>
-            <div className="navbar" style={{display:"flex"}}>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-                inputProps={{ 'aria-label': 'search' }}
-              />
-              </div>
-            </div>
             {/* <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
               <IconButton aria-label="show 4 new mails" color="inherit">
