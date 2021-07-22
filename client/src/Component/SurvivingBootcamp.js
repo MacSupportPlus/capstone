@@ -8,7 +8,9 @@ import "../survivingBootcamp.css"
 
 
 export const SurvivingBootcamp = () => {
+
     const [video, setVideo] = useState("")
+
     const courses = useSelector(state => state.course.courses);
     const dispatch = useDispatch();
 
