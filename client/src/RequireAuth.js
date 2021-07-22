@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 const RequireAuth = (props) => {
   const history = useHistory();
-  const auth = useSelector((state) => state.auth);
+  const auth = useSelector((state) => state.auth.auth);
 
   useEffect(() => {
     if(!auth){
