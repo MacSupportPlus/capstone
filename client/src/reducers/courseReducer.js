@@ -5,7 +5,8 @@ const courseReducer = (state, action) => {
     state = {
         courseItems: [],
         numberOfItems: 0,
-        totalCost: parseFloat(0.00)
+        totalCost: parseFloat(0.00),
+        courses: []
     };
   }
 
@@ -36,6 +37,16 @@ const courseReducer = (state, action) => {
         }
     default:
       return state;
+    
+    case "GET_VIDEOS":
+
+        return{
+            ...state,
+            courses: action.data
+        }
+
+        
+
   }
 };
 
