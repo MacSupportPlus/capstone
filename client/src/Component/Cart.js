@@ -1,16 +1,14 @@
-import React from "react";
-import {useSelector, useDispatch} from 'react-redux';
+import React from 'react'
+import {useSelector, useDispatch} from 'react-redux'
 import {formatCurrency} from './utils';
 import Fade from 'react-reveal/Fade';
 import {removeFromCart} from '../actions/courseActions'
 
-
-const CourseItems = () => {
-
+const Cart = () => {
     const courseItems = useSelector(state => state.course.cartItems);
     const numberOfItems = useSelector(state => state.course.numberOfItems);
-    const dispatch = useDispatch();
     const totalCosts = useSelector(state => state.course.totalCost);
+    const dispatch = useDispatch()
     console.log(courseItems)
   return <>
     <div>
@@ -41,14 +39,18 @@ const CourseItems = () => {
                     </div>
 
                     <div className="">
-                        {(item.price)} X {item.count}
+                        {item.price} X {item.count}
                         <button className="btn btn-warning" onClick={()=> dispatch(removeFromCart(item))}>Remove</button>
                     </div>
+                   
                 </div>
+            
             })}
         </div>
+       {formatCurrency(totalCosts)}
         </Fade>
   </>;
 };
 
-export default CourseItems;
+
+export default Cart
