@@ -1,9 +1,9 @@
-import {ADD_TO_CART} from '../actions/actionTypes';
+//import {ADD_TO_CART} from '../actions/actionTypes';
 
 const courseReducer = (state, action) => {
   if (state == null) {
     state = {
-        cart: [],
+        cartItems: [],
         numberOfItems: 0,
         totalCost: parseFloat(0.00),
         courses: [],
@@ -15,10 +15,56 @@ const courseReducer = (state, action) => {
 
     case "ADD_TO_CART":
 
-        return{
-            ...state,
-            cart: action.product
+        let newCartItems = [...state.cartItems];
+        let isFound = false;
+  
+
+        newCartItems.forEach(product =>{
+            if(product.id === action.product.id){
+                product.count++;
+                isFound = true;
+            }
+        })
+
+        if(!isFound){
+            newCartItems.push({...action.product, count:1})
         }
+
+
+        return {
+            ...state,
+            cartItems: newCartItems,
+            numberOfItems: state.numberOfItems + 1,
+            totalCost: state.totalCost + parseFloat(action.product.price_detail.amount)
+        }
+    case "REMOVE_FROM_CART":
+
+        let removedCartItems = [...state.cartItems];
+        console.log(removedCartItems)
+
+        removedCartItems.forEach(product =>{
+
+                product.count--;
+                let array = removedCartItems.filter(product => product.id !== action.product.id)
+                
+                removedCartItems = array
+                console.log(`newOne ${removedCartItems}`)
+            
+        })
+
+        // if(!isFounded){
+        //     removedCartItems.filter({...action.product, count:-1})
+        // }
+
+
+        return {
+            ...state,
+            cartItems: removedCartItems,
+            numberOfItems: state.numberOfItems - 1,
+            totalCost: state.totalCost - parseFloat(action.product.price)
+        }
+  
+        
     
     case "GET_VIDEOS":
 
