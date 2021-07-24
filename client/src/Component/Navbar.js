@@ -1,4 +1,5 @@
 import React from 'react';
+import {useSelector} from 'react-redux'
 import { alpha, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -11,6 +12,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 // import MailIcon from '@material-ui/icons/Mail';
 // import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
@@ -85,6 +87,8 @@ export default function PrimarySearchAppBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const numOfCart = useSelector(state => state.course.numberOfItems)
+  
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -180,11 +184,27 @@ export default function PrimarySearchAppBar() {
             >
               <MenuIcon />
             </IconButton>
-            {/* <Typography className={classes.title} variant="h6" noWrap>
-              U&#38;Me Academy
-            </Typography> */}
 
             <Link to="/"><img className="homeicon"src="/images/logo3.png"/></Link>
+            <div className={classes.grow}></div>
+            <div className="navbar" style={{display:"flex"}}>
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                placeholder="Search…"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                inputProps={{ 'aria-label': 'search' }}
+              />
+              
+              </div>
+              <Link className="link" to="/cart"><ShoppingCartIcon/></Link>
+              <span>{numOfCart}</span>
+            </div>
             {/* <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
               <IconButton aria-label="show 4 new mails" color="inherit">
@@ -225,7 +245,7 @@ export default function PrimarySearchAppBar() {
         {renderMenu}
       </div>
     </div>
-  );
+  )
 }
 
 

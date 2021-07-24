@@ -8,7 +8,7 @@ import Login from './Component/login/Login.js';
 import Register from './Component/register/Register.js';
 import Signout from './Component/Signout'
 import Auth from './RequireAuth';
-
+import Cart from './Component/Cart'
 
 // import styles from './styles.module.css';
 export const App = () => {
@@ -34,6 +34,11 @@ export const App = () => {
           <Route exact path="/courses" render={()=>(
               <Auth>
                 <Courses/>
+              </Auth>
+        )} />
+          <Route exact path="/cart" render={()=>(
+              <Auth>
+                <Cart/>
               </Auth>
         )} />
           <Route path='/login'>

@@ -61,13 +61,15 @@ router.get("/", async(req, res) => {
     }
 })
 
-router.put("/:videoId/addToCart", requireJwt, async(req, res) => {
+router.post("/:videoId/addToCart", requireJwt, async(req, res) => {
     try{
         console.log("WTF")
-        const { videoId } = req.params;
-        console.log(videoId, req.user)
-        const user = await User.findOne({_id: req.user._id });
+        const user = req.user
+        const  video = req.params.videoId
+        console.log(video)
         console.log(user)
+        //const user = await User.findOne({_id: req.user._id });
+        //console.log(user)
         // if(!user.cart.includes(req.body.course.id));
         //     await user.updateOne({$push: { cart: req.body.id}});
         //     res.status(200).json("The cart has been added");
