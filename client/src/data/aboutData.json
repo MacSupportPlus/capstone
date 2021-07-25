@@ -1,0 +1,29 @@
+{
+    "data": [
+        {
+            "title": "iQ",
+            "description": "Laqunita is a resident of Atlanta, GA. Ms. Williams served in the military for over 11 years in Information Technology. Q is currently a Freelancer and willing to help anyone in need.",
+            "image": "/images/Q.jpg"
+        },
+        {
+            "title": "Sampson",
+            "description": "Anjunique is a 9 yr Air Force Vet. I wanted to switch careers after working in medicine for 10 yrs. I'm a huge gamer and I've always been interested in technology. The things I learned at DigitalCrafts will help me get started on my new career and push me in the right direction!",
+            "image": "/images/Sampson.jpg"
+        },
+        {
+            "title": "Andrena",
+            "description": "about Andrena",
+            "image": "/images/Andrena.jpg"
+        },
+        {
+            "title": "Mac for Clarification",
+            "description": "about Mac",
+            "image": "/images/Mac.jpg"
+        },
+        {
+            "title": "Lorenzo",
+            "description": "about Lorenzo",
+            "image": "/images/Lorenzo.jpg"
+        }
+    ]
+}
