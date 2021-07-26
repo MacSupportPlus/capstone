@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import {Experiences} from './Component/Experiences';
+import {AboutUs} from './Component/AboutUs';
 import {SurvivingBootcamp} from './Component/SurvivingBootcamp';
 import {LandingPage} from './Component/LandingPage';
 import {Courses} from './Component/Courses';
@@ -26,9 +26,9 @@ export const App = () => {
                 <SurvivingBootcamp/>
               </Auth>
         )} />
-          <Route exact path="/experiences" render={()=>(
+          <Route exact path="/aboutus" render={()=>(
               <Auth>
-                <Experiences/>
+                <AboutUs/>
               </Auth>
         )} />
           <Route exact path="/courses" render={()=>(
