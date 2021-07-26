@@ -75,3 +75,22 @@ h3{
     font-size: 24px;
 
 }
+
+.homeicon{
+    height: 45px;
+    width: 80px;
+}
+
+.about{
+    background-color: #d4e09b;
+    grid-template-columns: repeat(2, auto[col-start]);
+}
+
+.meet{
+    background-color: #d4e09b;
+    text-align: center;
+    margin: 0;
+    color: #A44A3F;
+    font-weight:500;
+    font-size: 55px;
+}

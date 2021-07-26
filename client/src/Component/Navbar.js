@@ -19,6 +19,7 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import {Link} from 'react-router-dom'
 import '../index.css'
 
+
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -122,8 +123,8 @@ export default function PrimarySearchAppBar() {
       onClose={handleMenuClose}
     >
       <Link className="link" to="/"><MenuItem onClick={handleMenuClose}>Home</MenuItem></Link>
+      <Link className="link" to="/aboutus"><MenuItem onClick={handleMenuClose}>About Us</MenuItem></Link>
       <Link className="link" to="/courses"><MenuItem onClick={handleMenuClose}>Courses</MenuItem></Link>
-      <Link className="link" to="/experiences"><MenuItem onClick={handleMenuClose}>Experiences</MenuItem></Link>
       <Link className="link" to="/surviving"><MenuItem onClick={handleMenuClose}>Surviving</MenuItem></Link>
       <Link className="link" to="/signout"><MenuItem onClick={handleMenuClose}>Sign Out</MenuItem></Link>
     </Menu>
@@ -184,51 +185,17 @@ export default function PrimarySearchAppBar() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography className={classes.title} variant="h6" noWrap>
-              U&#38;Me Academy
-            </Typography>
+
+            <Link to="/"><img className="homeicon"src="/images/logo3.png"/></Link>
+            
             <div className={classes.grow}></div>
             <div className="navbar" style={{display:"flex"}}>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
+            
               </div>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-                inputProps={{ 'aria-label': 'search' }}
-              />
               
-              </div>
               <Link className="link" to="/cart"><ShoppingCartIcon/></Link>
               <span>{numOfCart}</span>
-            </div>
-            {/* <div className={classes.grow} />
-            <div className={classes.sectionDesktop}>
-              <IconButton aria-label="show 4 new mails" color="inherit">
-                <Badge badgeContent={4} color="secondary">
-                  {/* <MailIcon /> */}
-                {/* </Badge>
-              </IconButton>
-              <IconButton aria-label="show 17 new notifications" color="inherit">
-                <Badge badgeContent={17} color="secondary">
-                  {/* <NotificationsIcon /> */}
-                {/* </Badge>
-              </IconButton> */} 
-              {/* <IconButton
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-            </div> */}
+
             <div className={classes.sectionMobile}>
               <IconButton
                 aria-label="show more"
@@ -246,7 +213,7 @@ export default function PrimarySearchAppBar() {
         {renderMenu}
       </div>
     </div>
-  );
+  )
 }
 
 
