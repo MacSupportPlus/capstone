@@ -1,8 +1,9 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {formatCurrency} from './utils';
+import {formatCurrency} from '../utils';
 import Fade from 'react-reveal/Fade';
-import {removeFromCart} from '../actions/courseActions'
+import {removeFromCart} from '../../actions/courseActions'
+import './cart.css'
 
 const Cart = () => {
     const courseItems = useSelector(state => state.course.cartItems);
@@ -11,6 +12,7 @@ const Cart = () => {
     const dispatch = useDispatch()
     console.log(courseItems)
   return <>
+    <h1>Cart</h1>
     <div>
         {courseItems.length === 0 
             ?
@@ -24,30 +26,41 @@ const Cart = () => {
     </div>
 
         <Fade left cascade>
-        <div className="row cart-items">
+        <div className="row align-items-center cart-items">
             {courseItems.map(item =>{
-                return <div key={item.id} className="col-12 d-flex flex-column">
+                return <div key={item.id} className="col-7 d-flex">
 
-                    <div className="d-flex">
+                    <div className="d-flex flex-row">
                             <div>
-                                <img src={item.image_240x135} alt={item.title} />
+                                <img src={item.image_480x270} alt={item.title} />
                             </div>
-
                             <div>
+                                <div>
                                 {item.title}
+                                </div>
+                                <div>
+                                {item.price} X {item.count}
+                                </div>
                             </div>
+                    
+                            
+                
+                        <button className="btn btn-warning" onClick={()=> dispatch(removeFromCart(item))}>Remove</button>
+                        </div>
+                        <div>     
                     </div>
 
-                    <div className="">
-                        {item.price} X {item.count}
-                        <button className="btn btn-warning" onClick={()=> dispatch(removeFromCart(item))}>Remove</button>
-                    </div>
+                    
+            
                    
                 </div>
             
             })}
         </div>
-       {formatCurrency(totalCosts)}
+        <div className="totalCost">
+        <h1>Total Cost</h1>
+        {formatCurrency(totalCosts)}
+       </div>
         </Fade>
   </>;
 };

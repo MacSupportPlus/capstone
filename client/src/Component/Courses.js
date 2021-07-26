@@ -19,7 +19,7 @@ export const Courses = () =>{
         
         return(
             <>
-            <h1>Course Page</h1>
+            <h1>Courses</h1>
             <div className="row" style={{fontSize:"15px"}}>
                 <div className="d-flex col-8 column-flex flex-wrap p-4">
                     {coursesData.map((course) => (
