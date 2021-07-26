@@ -28,6 +28,7 @@ export const AboutUs = () => {
       
 
       return <>
+      {/* <div className="meet">Meet the Team</div> */}
         <div className="about">
           {aboutTeamData.map((member, index) =>{
             return (
