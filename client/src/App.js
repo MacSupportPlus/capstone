@@ -8,7 +8,7 @@ import Login from './Component/login/Login.js';
 import Register from './Component/register/Register.js';
 import Signout from './Component/Signout'
 import Auth from './RequireAuth';
-import Cart from './Component/Cart'
+import Cart from './Component/cart/Cart'
 
 // import styles from './styles.module.css';
 export const App = () => {
