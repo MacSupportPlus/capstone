@@ -17,7 +17,7 @@ const courseReducer = (state, action) => {
 
         let newCartItems = [...state.cartItems];
         let isFound = false;
-  
+        let productPrice = 0;
 
         newCartItems.forEach(product =>{
             if(product.id === action.product.id){
@@ -29,39 +29,42 @@ const courseReducer = (state, action) => {
         if(!isFound){
             newCartItems.push({...action.product, count:1})
         }
-
+        console.log(action.product)
+        if(action.product.price !== 'Free') {
+            productPrice = parseFloat(action.product.price_detail.amount)
+        }
 
         return {
             ...state,
             cartItems: newCartItems,
             numberOfItems: state.numberOfItems + 1,
-            totalCost: state.totalCost + parseFloat(action.product.price_detail.amount)
+            totalCost: state.totalCost + productPrice
         }
     case "REMOVE_FROM_CART":
 
-        let removedCartItems = [...state.cartItems];
-        console.log(removedCartItems)
+        let cartItems = [...state.cartItems];
+        console.log(cartItems)
 
-        removedCartItems.forEach(product =>{
+    
 
-                product.count--;
-                let array = removedCartItems.filter(product => product.id !== action.product.id)
                 
-                removedCartItems = array
-                console.log(`newOne ${removedCartItems}`)
+                let removedCartItems = cartItems.filter(product => product.id !== action.product.id)
             
-        })
+               
+                console.log(`newOne ${cartItems}`)
+            
+    
 
         // if(!isFounded){
-        //     removedCartItems.filter({...action.product, count:-1})
+        //     cartItems.filter({...action.product, count:-1})
         // }
 
 
         return {
             ...state,
             cartItems: removedCartItems,
-            numberOfItems: state.numberOfItems - 1,
-            totalCost: state.totalCost - parseFloat(action.product.price)
+            numberOfItems: state.numberOfItems - action.product.count,
+            totalCost: parseFloat(state.totalCost - parseFloat(action.product.price) * parseFloat(action.product.count)).toFixed(2)
         }
   
         
