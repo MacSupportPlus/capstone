@@ -25,8 +25,9 @@
     color: #A44A3F;
     margin-bottom: 10px;
 }
-.loginDescription{
+.loginDesc{
     font-size: 24px;
+    margin-left: 160px;
 }
 .loginBox {
     height: 300px;
@@ -63,13 +64,14 @@
 }
 
 .loginRegisterButton{
-    width: 70%;
+    width: 90%;
+    margin-left: 25px;
     align-self: center;
     height: 40px;
     border-radius: 10px;
     border: none;
     background-color:#F6F4D2;
     font-size: 20px;
-    color: white;
+    color: #A44A3F;
     cursor: pointer;
 }
