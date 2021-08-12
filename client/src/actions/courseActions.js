@@ -43,7 +43,7 @@ import axios from 'axios';
 export const getVideos = (cb) => async dispatch => {
 
     try{
-        let response = await axios.get('/videos/videos');
+        let response = await axios.get('https://fast-citadel-29445.herokuapp.com/api/videos/videos');
         
         dispatch({
             type: "GET_VIDEOS",
@@ -59,7 +59,7 @@ export const getVideos = (cb) => async dispatch => {
 export const getUdemyVideos = (cb) => async dispatch => {
 
     try{
-        let response = await axios.get('udemyapi/courses');
+        let response = await axios.get('https://fast-citadel-29445.herokuapp.com/api/udemyapi/courses');
         console.log(response)
         dispatch({
             type: "GET_UDEMY_VIDEOS",

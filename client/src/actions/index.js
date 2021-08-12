@@ -10,7 +10,7 @@ export const register = (formData, cb) => async dispatch => {
         console.log(formData);
         //take formdata: email, password
         //call our server api: /register
-        let response = await axios.post('/auth/register', formData);
+        let response = await axios.post('https://fast-citadel-29445.herokuapp.com/api/auth/register', formData);
 
         console.log(response.data.token);
         
@@ -43,7 +43,7 @@ export const login = (formData, cb) => async dispatch => {
     try{
             //make api call : /login
 
-            let response = await axios.post('auth/login', formData);
+            let response = await axios.post('https://fast-citadel-29445.herokuapp.com/api/auth/login', formData);
 
             dispatch({
                 type: "AUTH_USER",
