@@ -1,9 +1,13 @@
 import React from 'react';
-import {useSelector} from 'react-redux'
+import {useSelector, connect} from 'react-redux'
 import { alpha, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
+import { createStructuredSelector } from 'reselect';
+import { selectCartHidden } from '../redux/cart/cart.selectors';
+import CartIcon from './cart-icon/cart-icon.component'
+import CartDropdown from './cart-dropdown/cart-dropdown.component'
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
@@ -84,11 +88,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+const PrimarySearchAppBar = ({hidden}) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-  const numOfCart = useSelector(state => state.course.numberOfItems)
+  //const numOfCart = useSelector(state => state.course.numberOfItems)
   
 
   const isMenuOpen = Boolean(anchorEl);
@@ -193,8 +197,14 @@ export default function PrimarySearchAppBar() {
             
               </div>
               
-              <Link className="link" to="/cart"><ShoppingCartIcon/></Link>
-              <span>{numOfCart}</span>
+              {/* <Link className="link" to="/cart"><ShoppingCartIcon/></Link>
+              <span>{numOfCart}</span> */}
+              
+                <CartIcon />
+                { 
+                  hidden ? null :
+                  <CartDropdown />
+                }
 
             <div className={classes.sectionMobile}>
               <IconButton
@@ -215,7 +225,12 @@ export default function PrimarySearchAppBar() {
     </div>
   )
 }
+const mapStateToProps = createStructuredSelector ({
+  hidden: selectCartHidden,
+
+})
 
 
 
+export default connect(mapStateToProps)(PrimarySearchAppBar)
 
